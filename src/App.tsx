@@ -1,6 +1,7 @@
 import {useEffect} from "react";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import {Marquee} from "./components/Marquee/Marquee";
+import {Footer} from "./components/Footer/Footer";
 import {HomePage} from "./pages/HomePage";
 import {GamePage} from "./pages/GamePage";
 import {CharacterPage} from "./pages/CharacterPage";
@@ -12,7 +13,7 @@ function App() {
         if (window.location.hash) {
             const id = window.location.hash.slice(1);
             const el = document.getElementById(id);
-            if (el) el.scrollIntoView({ behavior: "smooth" });
+            if (el) el.scrollIntoView({behavior: "smooth"});
         }
     }, []);
 
@@ -27,6 +28,7 @@ function App() {
                     <Route path="/privacy-policy/:id" element={<PrivacyPolicyPage/>}/>
                     <Route path="*" element={<div></div>}/>
                 </Routes>
+                <Footer/>
             </BrowserRouter>
         </div>
     );
